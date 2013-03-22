@@ -7,7 +7,7 @@
 
 <LinearLayout
     android:layout_width="fill_parent"
-    android:layout_height="384dp"
+    android:layout_height="332dp"
     android:orientation="vertical" >
 
 <Spinner
@@ -19,7 +19,7 @@
     android:id="@+id/Time"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Time                                                                        " />
+    android:text="      Time                                                                        " />
 
 </LinearLayout>
 
