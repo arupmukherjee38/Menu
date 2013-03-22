@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:completionThreshold="1"
             android:hint="Course/paper" >
 
             <requestFocus />
@@ -45,6 +46,16 @@
             android:id="@+id/spinner3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+         <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:completionThreshold="1"
+            android:hint="Note" >
+
+            <requestFocus />
+        </AutoCompleteTextView>
     </LinearLayout>
 
     <LinearLayout
@@ -68,7 +79,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:onClick="selfDestruct"
-            android:text="Cancel" />
+            android:text="Cancel"
+             />
 
         <Button
             android:id="@+id/accessGraphe2"
