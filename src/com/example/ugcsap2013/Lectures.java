@@ -56,16 +56,16 @@ public class Lectures extends Activity implements TextWatcher{
 			dialog.setContentView (view);
 		        //dialog.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFFFFFFF));
 				//dialog.setContentView(R.layout.customtime);
-			NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker1);
-		    String[] nums = new String[20];
-		    for(int i=0; i<nums.length; i++)
-		           nums[i] = Integer.toString(i);
-
-		    np.setMinValue(1);
-		    np.setMaxValue(20);
-		    np.setWrapSelectorWheel(false);
-		    np.setDisplayedValues(nums);
-		    np.setValue(1);
+			//NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker1);
+		  //  String[] nums = new String[20];
+		  //  for(int i=0; i<nums.length; i++)
+		  //         nums[i] = Integer.toString(i);
+		  //  np.setMaxValue(20);
+		//   np.setMinValue(1);
+		   
+		//   np.setWrapSelectorWheel(false);
+		//   np.setDisplayedValues(nums);
+		//   np.setValue(1);
 				dialog.setTitle("Time");
 				dialog.show();
 				
