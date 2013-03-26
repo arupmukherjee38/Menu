@@ -1,13 +1,16 @@
 package com.example.ugcsap2013;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.AvoidXfermode.Mode;
 import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -22,7 +25,7 @@ public class Lectures extends Activity implements TextWatcher{
 	
 	
 	Button time,date;
-     
+   AlertDialog dialog;    
 	AutoCompleteTextView myAutoComplete,myAutoComplete1;
 	String item[]={
 	  "cse", "it", "mca", "Ece",
@@ -51,9 +54,36 @@ public class Lectures extends Activity implements TextWatcher{
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				
-			final	 Dialog dialog = new Dialog(context);
-			View view = getLayoutInflater().inflate(R.layout.customtime, null);
-			dialog.setContentView (view);
+			//LayoutInflater inflater=(LayoutInflater)getApplicationContext().getSystemService(context.LAYOUT_INFLATER_SERVICE);
+			View v=getLayoutInflater().inflate(R.layout.customtime, null);
+			NumberPicker np1=(NumberPicker)v.findViewById(R.id.numberPicker1);
+			np1.setMaxValue(12);
+			np1.setMinValue(1);
+			NumberPicker np2=(NumberPicker)v.findViewById(R.id.numberPicker2);
+			np2.setMaxValue(60);
+			np2.setMinValue(1);
+			AlertDialog.Builder build=new AlertDialog.Builder(Lectures.this);
+			build.setTitle("Time");
+			build.setView(v);
+			build.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			build.setNegativeButton("cancle", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		   
+		       dialog = build.create();
+		       dialog.show();
 		        //dialog.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFFFFFFF));
 				//dialog.setContentView(R.layout.customtime);
 			//NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker1);
@@ -66,8 +96,7 @@ public class Lectures extends Activity implements TextWatcher{
 		//   np.setWrapSelectorWheel(false);
 		//   np.setDisplayedValues(nums);
 		//   np.setValue(1);
-				dialog.setTitle("Time");
-				dialog.show();
+				
 				
 			}
 		});
