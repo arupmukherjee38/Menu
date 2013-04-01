@@ -1,5 +1,7 @@
 package com.example.ugcsap2013;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,16 +18,22 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.NumberPicker;
+import android.widget.DatePicker;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+//import android.widget.NumberPicker;
 import android.widget.Spinner;
-import android.widget.NumberPicker.OnValueChangeListener;
+//import android.widget.NumberPicker.OnValueChangeListener;
 
 
 public class Lectures extends Activity implements TextWatcher{
 	
 	
 	Button time,date;
-   AlertDialog dialog;    
+	TextView tv;
+   AlertDialog dialog;
+   static final int dialog_id=1;
 	AutoCompleteTextView myAutoComplete,myAutoComplete1;
 	String item[]={
 	  "cse", "it", "mca", "Ece",
@@ -56,12 +64,16 @@ public class Lectures extends Activity implements TextWatcher{
 				
 			//LayoutInflater inflater=(LayoutInflater)getApplicationContext().getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			View v=getLayoutInflater().inflate(R.layout.customtime, null);
-			NumberPicker np1=(NumberPicker)v.findViewById(R.id.numberPicker1);
-			np1.setMaxValue(12);
-			np1.setMinValue(1);
-			NumberPicker np2=(NumberPicker)v.findViewById(R.id.numberPicker2);
-			np2.setMaxValue(60);
-			np2.setMinValue(1);
+		//	NumberPicker np1=(NumberPicker)v.findViewById(R.id.numberPicker1);
+		//	np1.setMaxValue(12);
+		//	np1.setMinValue(1);
+		//	NumberPicker np2=(NumberPicker)v.findViewById(R.id.numberPicker2);
+		//	np2.setMaxValue(60);
+		//	np2.setMinValue(1);
+			final TimePicker t1=(TimePicker)v.findViewById(R.id.timePicker1);
+			t1.setIs24HourView(true);
+            t1.setCurrentHour(0);
+            t1.setCurrentMinute(0);
 			AlertDialog.Builder build=new AlertDialog.Builder(Lectures.this);
 			build.setTitle("Time");
 			build.setView(v);
@@ -70,6 +82,10 @@ public class Lectures extends Activity implements TextWatcher{
 				@Override
 				public void onClick(DialogInterface arg0, int arg1) {
 					// TODO Auto-generated method stub
+					int h=t1.getCurrentHour();
+					int m=t1.getCurrentMinute();
+					Toast.makeText(Lectures.this,String.valueOf(h)+"hours"+String.valueOf(m)+"minutes", Toast.LENGTH_LONG).show();
+					
 					
 				}
 			});
@@ -102,6 +118,50 @@ public class Lectures extends Activity implements TextWatcher{
 		});
         date=(Button)findViewById(R.id.Date);
         date.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFFFFFFF));
+        date.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
+			View v=getLayoutInflater().inflate(R.layout.customdate, null);
+			final DatePicker d=(DatePicker)v.findViewById(R.id.dpResult);
+			final Calendar c=Calendar.getInstance();
+			int year=c.get(Calendar.YEAR);
+			int Month=c.get(Calendar.MONTH);
+			int day=c.get(Calendar.DAY_OF_MONTH);
+			d.init(year, Month, day, null);
+			d.updateDate(year, Month, day);
+			AlertDialog.Builder build=new AlertDialog.Builder(Lectures.this);
+			build.setTitle("Date");
+			build.setView(v);
+			build.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					int day=d.getDayOfMonth();
+					int mouth=d.getMonth()+1;
+					int year=d.getYear();
+					Toast.makeText(Lectures.this,String.valueOf(day)+"/"+String.valueOf(mouth)+"/"+String.valueOf(year), Toast.LENGTH_LONG).show();
+				}
+			});
+            build.setNegativeButton("cancle", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		   
+		       dialog = build.create();
+		       dialog.show();
+			
+			
+			}
+			
+		});
         String[] items2 = new String[] {"Nationl", "States", "University","College","International"};
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
@@ -114,7 +174,7 @@ public class Lectures extends Activity implements TextWatcher{
                     android.R.layout.simple_spinner_item, items3);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
- myAutoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
+        myAutoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
         
         myAutoComplete1.addTextChangedListener(this);
         myAutoComplete1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, item));

@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
-    <NumberPicker
-        android:id="@+id/numberPicker1"
+    <TextView
+        android:id="@+id/tv1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-         />
-    
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/white"
+        android:text="Hour" />
 
-    <NumberPicker
-        android:id="@+id/numberPicker2"
+    <TextView
+        android:id="@+id/tv2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-         />
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/timePicker1"
+        android:layout_marginLeft="34dp"
+        android:layout_toRightOf="@+id/tv1"
+        android:gravity="right"
+        android:background="@android:color/white"
+        android:text=" Minute" />
 
-</LinearLayout>
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv1"
+        android:layout_marginTop="17dp" />
+
+</RelativeLayout>
