@@ -30,11 +30,11 @@ import android.widget.Spinner;
 public class Lectures extends Activity implements TextWatcher{
 	
 	
-	Button time,date;
+	Button time,date,course;
 	TextView tv;
    AlertDialog dialog;
    static final int dialog_id=1;
-	AutoCompleteTextView myAutoComplete,myAutoComplete1;
+	AutoCompleteTextView myAutoComplete1;
 	String item[]={
 	  "cse", "it", "mca", "Ece",
 	  
@@ -84,8 +84,10 @@ public class Lectures extends Activity implements TextWatcher{
 					// TODO Auto-generated method stub
 					int h=t1.getCurrentHour();
 					int m=t1.getCurrentMinute();
-					Toast.makeText(Lectures.this,String.valueOf(h)+"hours"+String.valueOf(m)+"minutes", Toast.LENGTH_LONG).show();
-					
+					//Toast.makeText(Lectures.this,String.valueOf(h)+"hours"+String.valueOf(m)+"minutes", Toast.LENGTH_LONG).show();
+					time.setText("Time"+"\n"+Integer.toString(h)+" "+"Hours"+" "+Integer.toString(m)+" "+"Minutes");
+
+
 					
 				}
 			});
@@ -178,11 +180,47 @@ public class Lectures extends Activity implements TextWatcher{
         
         myAutoComplete1.addTextChangedListener(this);
         myAutoComplete1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, item));
-		
-        myAutoComplete = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
+		course=(Button)findViewById(R.id.Course);
+		course.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFFFFFFF));
+		course.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				View v=getLayoutInflater().inflate(R.layout.customautocomple, null);
+				 AutoCompleteTextView myAutoComplete = (AutoCompleteTextView)v.findViewById(R.id.autoCompleteTextView1);
+		        
+		        myAutoComplete.addTextChangedListener(Lectures.this);
+		        myAutoComplete.setAdapter(new ArrayAdapter<String>(Lectures.this, android.R.layout.simple_dropdown_item_1line, item));
+		        AlertDialog.Builder build=new AlertDialog.Builder(Lectures.this);
+				build.setTitle("Course/paper");
+				build.setView(v);
+				build.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+	            build.setNegativeButton("cancle", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+
+	            dialog = build.create();
+			       dialog.show();
+				
+		        
+		        
+			}
+			
+		});
         
-        myAutoComplete.addTextChangedListener(this);
-        myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, item));
        
     }
 	@Override
@@ -201,6 +239,7 @@ public class Lectures extends Activity implements TextWatcher{
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 	
 }

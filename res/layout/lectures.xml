@@ -24,25 +24,27 @@
             android:id="@+id/Time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="left"
             
-            android:text="      Time                                                                        " />
+            android:text="Time" />
 
         <Button
             android:id="@+id/Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="      Date                                                                        " />
+            android:gravity="left"
+            
+            android:text="Date" />
 
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView1"
+        <Button
+            android:id="@+id/Course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:completionThreshold="1"
-            android:hint="Course/paper" >
+            android:gravity="left"
+            
+            android:text="Course/paper" />
 
-            <requestFocus />
-        </AutoCompleteTextView>
+         
 
         <Spinner
             android:id="@+id/spinner2"
