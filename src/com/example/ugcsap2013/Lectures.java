@@ -1,7 +1,7 @@
 package com.example.ugcsap2013;
 
+import java.text.DateFormatSymbols;
 import java.util.Calendar;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -30,7 +30,7 @@ import android.widget.Spinner;
 public class Lectures extends Activity implements TextWatcher{
 	
 	
-	Button time,date,course;
+	Button time,date,course,note;
 	TextView tv;
    AlertDialog dialog;
    static final int dialog_id=1;
@@ -143,9 +143,12 @@ public class Lectures extends Activity implements TextWatcher{
 				public void onClick(DialogInterface dialog, int which) {
 					// TODO Auto-generated method stub
 					int day=d.getDayOfMonth();
-					int mouth=d.getMonth()+1;
+					int month=d.getMonth()+1;
 					int year=d.getYear();
-					Toast.makeText(Lectures.this,String.valueOf(day)+"/"+String.valueOf(mouth)+"/"+String.valueOf(year), Toast.LENGTH_LONG).show();
+					String monthString = new DateFormatSymbols().getMonths()[month];;
+
+					date.setText("Date"+"\n"+Integer.toString(day)+"  "+monthString+"  "+Integer.toString(year));
+					//Toast.makeText(Lectures.this,String.valueOf(day)+"/"+String.valueOf(mouth)+"/"+String.valueOf(year), Toast.LENGTH_LONG).show();
 				}
 			});
             build.setNegativeButton("cancle", new DialogInterface.OnClickListener() {
@@ -176,10 +179,10 @@ public class Lectures extends Activity implements TextWatcher{
                     android.R.layout.simple_spinner_item, items3);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
-        myAutoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
+      //  myAutoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
         
-        myAutoComplete1.addTextChangedListener(this);
-        myAutoComplete1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, item));
+      //  myAutoComplete1.addTextChangedListener(this);
+      //  myAutoComplete1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, item));
 		course=(Button)findViewById(R.id.Course);
 		course.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFFFFFFF));
 		course.setOnClickListener(new OnClickListener() {
@@ -188,7 +191,7 @@ public class Lectures extends Activity implements TextWatcher{
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				View v=getLayoutInflater().inflate(R.layout.customautocomple, null);
-				 AutoCompleteTextView myAutoComplete = (AutoCompleteTextView)v.findViewById(R.id.autoCompleteTextView1);
+				 final AutoCompleteTextView myAutoComplete = (AutoCompleteTextView)v.findViewById(R.id.autoCompleteTextView1);
 		        
 		        myAutoComplete.addTextChangedListener(Lectures.this);
 		        myAutoComplete.setAdapter(new ArrayAdapter<String>(Lectures.this, android.R.layout.simple_dropdown_item_1line, item));
@@ -200,6 +203,51 @@ public class Lectures extends Activity implements TextWatcher{
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
+						
+						String s = myAutoComplete.getEditableText().toString();
+						Toast.makeText(Lectures.this,s, Toast.LENGTH_LONG).show();
+						course.setText("Course/paper"+"\n"+s);
+					}
+				});
+	            build.setNegativeButton("cancle", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+
+	            dialog = build.create();
+			       dialog.show();
+				
+		        
+		        
+			}
+			
+		});
+		note = (Button)findViewById(R.id.Note);
+		note.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFFFFFFF));
+		note.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				View v1=getLayoutInflater().inflate(R.layout.customautofornote, null);
+				 final AutoCompleteTextView myAutoComplete1 = (AutoCompleteTextView)v1.findViewById(R.id.autoCompleteTextView2);
+		        
+		        myAutoComplete1.addTextChangedListener(Lectures.this);
+		        myAutoComplete1.setAdapter(new ArrayAdapter<String>(Lectures.this, android.R.layout.simple_dropdown_item_1line, item));
+		        AlertDialog.Builder build=new AlertDialog.Builder(Lectures.this);
+				build.setTitle("Note");
+				build.setView(v1);
+				build.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						String s = myAutoComplete1.getEditableText().toString();
+						Toast.makeText(Lectures.this,s, Toast.LENGTH_LONG).show();
 						
 					}
 				});
