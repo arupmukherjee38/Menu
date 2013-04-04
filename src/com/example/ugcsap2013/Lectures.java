@@ -22,9 +22,8 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-//import android.widget.NumberPicker;
 import android.widget.Spinner;
-//import android.widget.NumberPicker.OnValueChangeListener;
+
 
 
 public class Lectures extends Activity implements TextWatcher{
