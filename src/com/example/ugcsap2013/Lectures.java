@@ -33,7 +33,7 @@ public class Lectures extends Activity implements TextWatcher{
 	TextView tv;
    AlertDialog dialog;
    static final int dialog_id=1;
-	AutoCompleteTextView myAutoComplete1;
+	AutoCompleteTextView myAutoComplete1 ;
 	String item[]={
 	  "cse", "it", "mca", "Ece",
 	  
