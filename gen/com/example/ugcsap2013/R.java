@@ -37,10 +37,11 @@ public final class R {
         public static final int autoCompleteTextView2=0x7f080001;
         public static final int dpResult=0x7f080002;
         public static final int list_image=0x7f080010;
-        public static final int menu_settings=0x7f080012;
+        public static final int menu_settings=0x7f080013;
         public static final int spinner1=0x7f080006;
         public static final int spinner2=0x7f08000a;
         public static final int spinner3=0x7f08000b;
+        public static final int textView1=0x7f080012;
         public static final int thumbnail=0x7f08000f;
         public static final int timePicker1=0x7f080005;
         public static final int title=0x7f080011;
@@ -54,6 +55,7 @@ public final class R {
         public static final int customtime=0x7f030003;
         public static final int lectures=0x7f030004;
         public static final int menu=0x7f030005;
+        public static final int sqlview=0x7f030006;
     }
     public static final class menu {
         public static final int menu=0x7f070000;

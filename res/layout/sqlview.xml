@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableRow >
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="type"
+                      android:layout_weight="1">
+                      
+                
+            </TextView>
+             <TextView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="time"
+                      android:layout_weight="1">
+                      
+                
+            </TextView>
+             <TextView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="date"
+                      android:layout_weight="1">
+                      
+                
+            </TextView>
+             <TextView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="paper"
+                      android:layout_weight="1">
+                      
+                
+            </TextView>
+             <TextView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="where"
+                      android:layout_weight="1">
+                      
+                
+            </TextView>
+             <TextView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="mode"
+                      android:layout_weight="1">
+                      
+                
+            </TextView>
+             <TextView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="Note"
+                      android:layout_weight="1">
+                      
+                
+            </TextView>
+        </TableRow>
+        
+
+        
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="get info" />
+   
+</LinearLayout>

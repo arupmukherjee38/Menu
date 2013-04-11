@@ -2,6 +2,8 @@ package com.example.ugcsap2013;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
+
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -29,7 +31,7 @@ import android.widget.Spinner;
 public class Lectures extends Activity implements TextWatcher{
 	
 	
-	Button time,date,course,note;
+	Button time,date,course,note,save;
 	TextView tv;
    AlertDialog dialog;
    static final int dialog_id=1;
@@ -38,6 +40,10 @@ public class Lectures extends Activity implements TextWatcher{
 	  "cse", "it", "mca", "Ece",
 	  
 	};
+	static StringBuilder datepic;
+	  int minits;
+	 String s;
+	 String s11,s1,s2,s3,datepica;
 	
 	final Context context = this;
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,7 @@ public class Lectures extends Activity implements TextWatcher{
                     android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        s1=spinner.getSelectedItem().toString();
       //  np1=(NumberPicker)findViewById(R.id.numberPicker1);
      // np1.setMaxValue(12);
       // np1.setMinValue(0);
@@ -85,8 +92,8 @@ public class Lectures extends Activity implements TextWatcher{
 					int m=t1.getCurrentMinute();
 					//Toast.makeText(Lectures.this,String.valueOf(h)+"hours"+String.valueOf(m)+"minutes", Toast.LENGTH_LONG).show();
 					time.setText("Time"+"\n"+Integer.toString(h)+" "+"Hours"+" "+Integer.toString(m)+" "+"Minutes");
-
-
+                    minits=m+(h*60);
+                     
 					
 				}
 			});
@@ -145,7 +152,7 @@ public class Lectures extends Activity implements TextWatcher{
 					int month=d.getMonth()+1;
 					int year=d.getYear();
 					String monthString = new DateFormatSymbols().getMonths()[month];;
-
+                     datepica=day+"-"+monthString+"-"+year;
 					date.setText("Date"+"\n"+Integer.toString(day)+"  "+monthString+"  "+Integer.toString(year));
 					//Toast.makeText(Lectures.this,String.valueOf(day)+"/"+String.valueOf(mouth)+"/"+String.valueOf(year), Toast.LENGTH_LONG).show();
 				}
@@ -172,12 +179,16 @@ public class Lectures extends Activity implements TextWatcher{
                     android.R.layout.simple_spinner_item, items2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
+        s2=spinner2.getSelectedItem().toString();
         String[] items3 = new String[] {"Aloweted", "Extra"};
         Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_item, items3);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
+        s3=spinner3.getSelectedItem().toString();
+        Toast.makeText(this, s3, Toast.LENGTH_LONG).show();
+        
       //  myAutoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
         
       //  myAutoComplete1.addTextChangedListener(this);
@@ -203,9 +214,9 @@ public class Lectures extends Activity implements TextWatcher{
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
 						
-						String s = myAutoComplete.getEditableText().toString();
-						Toast.makeText(Lectures.this,s, Toast.LENGTH_LONG).show();
-						course.setText("Course/paper"+"\n"+s);
+						 s11 = myAutoComplete.getEditableText().toString();
+						Toast.makeText(Lectures.this,s11, Toast.LENGTH_LONG).show();
+						course.setText("Course/paper"+"\n"+s11);
 					}
 				});
 	            build.setNegativeButton("cancle", new DialogInterface.OnClickListener() {
@@ -245,7 +256,7 @@ public class Lectures extends Activity implements TextWatcher{
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
-						String s = myAutoComplete1.getEditableText().toString();
+					 s = myAutoComplete1.getEditableText().toString();
 						Toast.makeText(Lectures.this,s, Toast.LENGTH_LONG).show();
 						
 					}
@@ -267,6 +278,46 @@ public class Lectures extends Activity implements TextWatcher{
 			}
 			
 		});
+		
+		
+	save=(Button)findViewById(R.id.accessGraphe);
+	save.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+			// TODO Auto-generated method stub
+			boolean work=true;
+			try{
+			String auto1=s;
+			String auto2=s11;
+			String spin1=s1;
+			String spin2=s2;
+			String spin3=s3;
+			int time=minits;
+			String date=datepica; 
+			Db entry=new Db(Lectures.this);
+			entry.open();
+			
+			entry.createntry(spin1,time,date,auto1,spin2,spin3,auto2);
+			entry.close();
+			
+		}
+			catch(Exception e){
+				work=false;
+				System.out.print(work);
+			}
+			finally{
+				if(work)
+				{Dialog d=new Dialog(Lectures.this);
+				d.setTitle("Sucess");
+				TextView tv=new TextView(Lectures.this);
+				tv.setText("Suc");
+				d.setContentView(tv);
+				d.show();
+				}
+			}
+		}
+	});
         
        
     }
