@@ -298,7 +298,7 @@ public class Lectures extends Activity implements TextWatcher{
 			Db entry=new Db(Lectures.this);
 			entry.open();
 			
-			entry.createntry(spin1,time,date,auto1,spin2,spin3,auto2);
+			entry.createntry(new Dbsetandget(spin1,time,date,auto1,spin2,spin3,auto2));
 			entry.close();
 			
 		}

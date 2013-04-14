@@ -76,7 +76,7 @@ public class Db {
 	public void close(){
 		ourdbDbhelper.close();
 	}
-	public long createntry(String spin1, int time, String date,
+	/*public long createntry(String spin1, int time, String date,
 			String auto1, String spin2, String spin3, String auto2) {
 		// TODO Auto-generated method stub
 		ContentValues cv=new ContentValues();
@@ -89,6 +89,19 @@ public class Db {
 		cv.put(KEY_NOTE, auto2);
 	    return	ourDatabase.insert(DATABASE_TABLE, null, cv);
 		
+		
+	}*/
+	public void createntry(Dbsetandget dbsetandget) {
+		// TODO Auto-generated method stub
+		ContentValues cv=new ContentValues();
+		cv.put(KEY_NAME, dbsetandget.getSpin1());
+		cv.put(KEY_TIME, dbsetandget.getTime());
+		cv.put(KEY_DATE, dbsetandget.getDate());
+		cv.put(KEY_PAPER, dbsetandget.getAuto1());
+		cv.put(KEY_WHERE, dbsetandget.getSpin2());
+		cv.put(KEY_MODE, dbsetandget.getSpin3());
+		cv.put(KEY_NOTE, dbsetandget.getAuto2());
+		ourDatabase.insert(DATABASE_TABLE, null, cv);
 		
 	}
 }
