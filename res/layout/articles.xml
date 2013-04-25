@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100" >
+    
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="392dp" 
+    android:layout_weight="100">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="332dp"
+        android:orientation="vertical" >
+
+        <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Title"
+        android:textSize="20dip" />
+
+    <EditText
+        android:id="@+id/edView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Title" />
+
+      <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Editors" 
+        android:textSize="20dip"/>
+
+    <EditText
+        android:id="@+id/edView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:hint="Enter Editor" />
+
+      <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Publisher" 
+        android:textSize="20dip"/>
+
+    <EditText
+        android:id="@+id/edView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Enter Publisher"
+        android:inputType="numberDecimal" />
+
+          <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Year Of Publication" 
+        android:textSize="20dip"/>
+    <EditText 
+        android:id="@+id/edView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Year of Publiction"
+        android:inputType="numberDecimal"
+     />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="ISBN No." 
+        android:textSize="20dip"/>
+    <EditText 
+        android:id="@+id/edView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter ISBN"
+        android:inputType="numberDecimal"
+     />
+    <Button
+            android:id="@+id/Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            
+            android:text="Date" />
+
+   <TextView 
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whether peer reviewed?"
+        android:textSize="20dip"
+        />
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Yes" 
+            android:layout_weight="50"/>
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No" 
+            android:layout_weight="50"/>
+
+      
+    </RadioGroup>
+    
+     <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="No.of Authors" 
+        android:textSize="20dip"/>
+    <EditText 
+        android:id="@+id/edView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Authors No"
+        android:inputType="numberDecimal"
+     />
+    <TextView 
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aru You Main Author?"
+        android:textSize="20dip"
+        />
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Yes" 
+            android:layout_weight="50"/>
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No" 
+            android:layout_weight="50"/>
+
+      
+    </RadioGroup>
+    
+    
+     </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/accessGraphe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.06"
+            android:onClick="selfDestruct"
+            
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/accessGraphe2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.06"
+            android:onClick="selfDestruct"
+            
+            android:text="Cancel"
+             />
+
+        <Button
+            android:id="@+id/accessGraphe2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.06"
+            android:onClick="selfDestruct"
+            
+            android:text="Delete" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -15,47 +15,67 @@ public final class R {
     }
     public static final class drawable {
         public static final int backs=0x7f020000;
-        public static final int download=0x7f020001;
-        public static final int download1=0x7f020002;
-        public static final int download2=0x7f020003;
-        public static final int download3=0x7f020004;
-        public static final int gradient_bg=0x7f020005;
-        public static final int gradient_bg_hover=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int image_bg=0x7f020008;
-        public static final int list_selector=0x7f020009;
-        public static final int ugc=0x7f02000a;
+        public static final int gradient_bg=0x7f020001;
+        public static final int gradient_bg_hover=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int image_bg=0x7f020004;
+        public static final int jurnal=0x7f020005;
+        public static final int jurnalset=0x7f020006;
+        public static final int lecturepic=0x7f020007;
+        public static final int list_selector=0x7f020008;
+        public static final int publicationpic=0x7f020009;
+        public static final int research=0x7f02000a;
+        public static final int researchpic=0x7f02000b;
+        public static final int teachingdutypic=0x7f02000c;
+        public static final int ugc=0x7f02000d;
     }
     public static final class id {
-        public static final int Course=0x7f080009;
+        public static final int Course=0x7f080017;
         public static final int Date=0x7f080008;
-        public static final int Note=0x7f08000c;
-        public static final int Time=0x7f080007;
-        public static final int accessGraphe=0x7f08000d;
-        public static final int accessGraphe2=0x7f08000e;
-        public static final int autoCompleteTextView1=0x7f080000;
-        public static final int autoCompleteTextView2=0x7f080001;
-        public static final int dpResult=0x7f080002;
-        public static final int list_image=0x7f080010;
-        public static final int menu_settings=0x7f080013;
-        public static final int spinner1=0x7f080006;
-        public static final int spinner2=0x7f08000a;
-        public static final int spinner3=0x7f08000b;
-        public static final int textView1=0x7f080012;
-        public static final int thumbnail=0x7f08000f;
-        public static final int timePicker1=0x7f080005;
-        public static final int title=0x7f080011;
-        public static final int tv1=0x7f080003;
-        public static final int tv2=0x7f080004;
+        public static final int Note=0x7f08001c;
+        public static final int Time=0x7f080019;
+        public static final int accessGraphe=0x7f08000f;
+        public static final int accessGraphe2=0x7f080010;
+        public static final int autoCompleteTextView1=0x7f080011;
+        public static final int autoCompleteTextView2=0x7f080012;
+        public static final int dpResult=0x7f080013;
+        public static final int edView1=0x7f080001;
+        public static final int edView2=0x7f080003;
+        public static final int edView3=0x7f080005;
+        public static final int edView4=0x7f080007;
+        public static final int edView5=0x7f08000e;
+        public static final int list_image=0x7f08001e;
+        public static final int menu_settings=0x7f080020;
+        public static final int radio0=0x7f08000b;
+        public static final int radio1=0x7f08000c;
+        public static final int radioGroup1=0x7f08000a;
+        public static final int spinner1=0x7f080018;
+        public static final int spinner2=0x7f08001a;
+        public static final int spinner3=0x7f08001b;
+        public static final int textView1=0x7f080000;
+        public static final int textView2=0x7f080002;
+        public static final int textView3=0x7f080004;
+        public static final int textView4=0x7f080006;
+        public static final int textView5=0x7f08000d;
+        public static final int thumbnail=0x7f08001d;
+        public static final int timePicker1=0x7f080016;
+        public static final int title=0x7f08001f;
+        public static final int tv1=0x7f080014;
+        public static final int tv2=0x7f080015;
+        public static final int tv6=0x7f080009;
     }
     public static final class layout {
-        public static final int customautocomple=0x7f030000;
-        public static final int customautofornote=0x7f030001;
-        public static final int customdate=0x7f030002;
-        public static final int customtime=0x7f030003;
-        public static final int lectures=0x7f030004;
-        public static final int menu=0x7f030005;
-        public static final int sqlview=0x7f030006;
+        public static final int articles=0x7f030000;
+        public static final int customautocomple=0x7f030001;
+        public static final int customautofornote=0x7f030002;
+        public static final int customdate=0x7f030003;
+        public static final int customtime=0x7f030004;
+        public static final int jurnal=0x7f030005;
+        public static final int lectures=0x7f030006;
+        public static final int menu=0x7f030007;
+        public static final int mine=0x7f030008;
+        public static final int pubtab=0x7f030009;
+        public static final int sqlview=0x7f03000a;
     }
     public static final class menu {
         public static final int menu=0x7f070000;
@@ -63,6 +83,7 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050001;
+        public static final int jurnal=0x7f050003;
         public static final int menu_settings=0x7f050002;
     }
     public static final class style {

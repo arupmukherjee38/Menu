@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
 public class UgcsapArryAdapter extends ArrayAdapter<String> {
@@ -30,21 +31,23 @@ public class UgcsapArryAdapter extends ArrayAdapter<String> {
 		View rowView = inflater.inflate(R.layout.menu, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.title);
 		ImageView imageView = (ImageView) rowView.findViewById(R.id.list_image);
+		imageView.setScaleType(ScaleType.FIT_XY);
 		textView.setText(values[position]);
 
 		// Change icon based on name
 		String s = values[position];
 
 		System.out.println(s);
+		
 
 		if (s.equals("Lectures")) {
-			imageView.setImageResource(R.drawable.download);
-		} else if (s.equals("Teaching Duty")) {
-			imageView.setImageResource(R.drawable.download1);
-		} else if (s.equals("Reserch")) {
-			imageView.setImageResource(R.drawable.download2);
-		} else {
-			imageView.setImageResource(R.drawable.download3);
+			imageView.setImageResource(R.drawable.lecturepic);
+		} else if (s.equals("Teaching Duty")) {			
+			imageView.setImageResource(R.drawable.teachingdutypic);
+		} else if (s.equals("Reserch")) {			
+			imageView.setImageResource(R.drawable.researchpic);
+		} else {			
+			imageView.setImageResource(R.drawable.publicationpic);
 		}
 
 		return rowView;
