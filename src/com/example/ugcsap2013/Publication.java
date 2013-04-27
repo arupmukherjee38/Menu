@@ -18,18 +18,28 @@ public class Publication extends TabActivity{
     	TabSpec jurnal = tb.newTabSpec("Jurnal");
     	
         // setting Title and Icon for the Tab
-        jurnal.setIndicator(null, resources.getDrawable(R.drawable.jurnalset));
+        jurnal.setIndicator("", resources.getDrawable(R.drawable.jurnal));
         Intent jurnalIntent = new Intent(this, Jurnal.class);
         jurnal.setContent(jurnalIntent);
         tb.addTab(jurnal);
-        TabSpec mine = tb.newTabSpec("mine");
-        mine.setIndicator(null, resources.getDrawable(R.drawable.research));
+        TabSpec art = tb.newTabSpec("art");
+        art.setIndicator(null, resources.getDrawable(R.drawable.research));
         Intent mineIntent = new Intent(this, Article.class);
-        mine.setContent(mineIntent);
+        art.setContent(mineIntent);        
+        tb.addTab(art);
         
-        tb.addTab(mine);
-       // tb.addTab(Conference);
-       // tb.addTab(bookPublished);
-    }
+        TabSpec conf = tb.newTabSpec("conf");
+        conf.setIndicator(null,resources.getDrawable(R.drawable.research));
+        Intent confIntent = new Intent(this,Conference.class);
+        conf.setContent(confIntent);        
+        tb.addTab(conf);
+        
+        TabSpec book = tb.newTabSpec("book");
+        book.setIndicator(null,resources.getDrawable(R.drawable.research));
+        Intent bookIntent = new Intent(this,Book.class);
+        book.setContent(bookIntent);      
+        tb.addTab(book);
+        
+       }
 }
 

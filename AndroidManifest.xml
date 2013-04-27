@@ -38,19 +38,31 @@
         </activity>
         <activity
             android:name="com.example.ugcsap2013.Publication"
-            android:configChanges="keyboardHidden"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name" >
             
         </activity>
         <activity
             android:name="com.example.ugcsap2013.Jurnal"
-            android:configChanges="keyboardHidden"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name" >
             
         </activity>
           <activity
             android:name="com.example.ugcsap2013.Article"
-            android:configChanges="keyboardHidden"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name" >
+            
+        </activity>
+         <activity
+            android:name="com.example.ugcsap2013.Conference"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name" >
+            
+        </activity>
+            <activity
+            android:name="com.example.ugcsap2013.Book"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name" >
             
         </activity>

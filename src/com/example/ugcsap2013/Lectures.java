@@ -3,18 +3,15 @@ package com.example.ugcsap2013;
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
-import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.AvoidXfermode.Mode;
 import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;

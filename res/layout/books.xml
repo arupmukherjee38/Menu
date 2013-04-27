@@ -16,7 +16,7 @@
         android:orientation="vertical" >
 
         <TextView
-        android:id="@+id/jourtextView1"
+        android:id="@+id/title_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -25,13 +25,13 @@
         android:textSize="20dip" />
 
     <EditText
-        android:id="@+id/jouredView1"
+        android:id="@+id/title_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Title" />
 
       <TextView
-        android:id="@+id/jourtextView2"
+        android:id="@+id/book_page_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -39,112 +39,90 @@
         android:text="Page Number" 
         android:textSize="20dip"/>
     <EditText 
-        android:id="@+id/jouredView2"
+        android:id="@+id/book_page_no_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter pageno"
         android:inputType="numberDecimal"
      />
+      <Button
+        android:id="@+id/book_type"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="book Type" 
+        android:textSize="20dip"/>
+      <Button
+        android:id="@+id/date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Date" 
+        android:textSize="20dip"/>
       <TextView
-        android:id="@+id/jourtextView3"
+        android:id="@+id/yop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Year of publication" 
+        android:text="Year Of Publication" 
         android:textSize="20dip"/>
     <EditText 
-        android:id="@+id/jouredView3"
+        android:id="@+id/yop_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter yop"
+        android:hint="Enter YOP"
         android:inputType="numberDecimal"
      />
-          <TextView
-        android:id="@+id/jourtextView4"
+    <TextView
+        android:id="@+id/pub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="ISBN No." 
+        android:text="Publisher" 
         android:textSize="20dip"/>
     <EditText 
-        android:id="@+id/jouredView4"
+        android:id="@+id/pub_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter ISBN"
+        android:hint="Enter Publisher Number"
         android:inputType="numberDecimal"
      />
-    <Button
-            android:id="@+id/jourDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            
-            android:text="Date" />
-
-    <RadioGroup
-        android:id="@+id/jourreffered"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100" >
-
-        <RadioButton
-            android:id="@+id/jourref"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Reffered" 
-            android:layout_weight="50"/>
-
-        <RadioButton
-            android:id="@+id/journoref"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Non Referred" 
-            android:layout_weight="50"/>
-
-      
-    </RadioGroup>
-    <Button
-            android:id="@+id/jourImpact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            
-            android:text="Impact Factor" />
+    
      <TextView
-        android:id="@+id/jourtextView5"
+        android:id="@+id/yop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="No.of Authors" 
+        android:text="ISBN" 
         android:textSize="20dip"/>
     <EditText 
-        android:id="@+id/jouredView5"
+        android:id="@+id/yop_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Authors No"
+        android:hint="Enter ISBN Number"
         android:inputType="numberDecimal"
      />
     <TextView 
-        android:id="@+id/jourtv6"
+        android:id="@+id/tv6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aru You Main Author?"
+        android:text="Whether peer reviewed?"
         android:textSize="20dip"
         />
     <RadioGroup
-        android:id="@+id/jourmainauth"
+        android:id="@+id/radioGroup1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100" >
 
         <RadioButton
-            android:id="@+id/jouryes"
+            android:id="@+id/radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -152,7 +130,55 @@
             android:layout_weight="50"/>
 
         <RadioButton
-            android:id="@+id/journo"
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No" 
+            android:layout_weight="50"/>
+
+      
+    </RadioGroup>
+    
+
+  <TextView
+        android:id="@+id/no_of_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="No.of Authors" 
+        android:textSize="20dip"/>
+    <EditText 
+        android:id="@+id/no_of_auth_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Authors No"
+        android:inputType="numberDecimal"
+     />
+    <TextView 
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aru You Main Author?"
+        android:textSize="20dip"
+        />
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Yes" 
+            android:layout_weight="50"/>
+
+        <RadioButton
+            android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No" 
@@ -171,12 +197,10 @@
         android:layout_height="wrap_content"
         android:background="@android:color/darker_gray"
         android:gravity="bottom"
-        android:orientation="horizontal"
-        
-         >
+        android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/jouraccessGraphe"
+            android:id="@+id/accessGraphe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.06"
@@ -185,7 +209,7 @@
             android:text="Save" />
 
         <Button
-            android:id="@+id/jouraccessGraphe2"
+            android:id="@+id/accessGraphe2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.06"
@@ -195,13 +219,13 @@
              />
 
         <Button
-            android:id="@+id/jouraccessGraphe3"
+            android:id="@+id/accessGraphe3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.06"
             android:onClick="selfDestruct"
             
-            android:text="Clear" />
+            android:text="Delete" />
     </LinearLayout>
 
 </LinearLayout>

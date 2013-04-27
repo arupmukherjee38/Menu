@@ -16,7 +16,7 @@
         android:orientation="vertical" >
 
         <TextView
-        android:id="@+id/jourtextView1"
+        android:id="@+id/conftitle_conf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -25,13 +25,13 @@
         android:textSize="20dip" />
 
     <EditText
-        android:id="@+id/jouredView1"
+        android:id="@+id/confedView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Title" />
 
       <TextView
-        android:id="@+id/jourtextView2"
+        android:id="@+id/confpage_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -39,83 +39,72 @@
         android:text="Page Number" 
         android:textSize="20dip"/>
     <EditText 
-        android:id="@+id/jouredView2"
+        android:id="@+id/confpage_no_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter pageno"
         android:inputType="numberDecimal"
      />
-      <TextView
-        android:id="@+id/jourtextView3"
-        android:layout_width="wrap_content"
+      <Button
+        android:id="@+id/conf_loc"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Year of publication" 
+        android:gravity="left"
+        android:text="Conference Location" 
         android:textSize="20dip"/>
-    <EditText 
-        android:id="@+id/jouredView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter yop"
-        android:inputType="numberDecimal"
-     />
-          <TextView
-        android:id="@+id/jourtextView4"
-        android:layout_width="wrap_content"
+      <Button
+        android:id="@+id/conf_date"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="ISBN No." 
+        android:text="Conference Date" 
+           android:gravity="left"
         android:textSize="20dip"/>
-    <EditText 
-        android:id="@+id/jouredView4"
-        android:layout_width="match_parent"
+      <Button
+        android:id="@+id/conf_time"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter ISBN"
-        android:inputType="numberDecimal"
-     />
-    <Button
-            android:id="@+id/jourDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            
-            android:text="Date" />
-
-    <RadioGroup
-        android:id="@+id/jourreffered"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100" >
-
-        <RadioButton
-            android:id="@+id/jourref"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Reffered" 
-            android:layout_weight="50"/>
-
-        <RadioButton
-            android:id="@+id/journoref"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Non Referred" 
-            android:layout_weight="50"/>
-
-      
-    </RadioGroup>
-    <Button
-            android:id="@+id/jourImpact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            
-            android:text="Impact Factor" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Conference Time" 
+           android:gravity="left"
+        android:textSize="20dip"/>
      <TextView
-        android:id="@+id/jourtextView5"
+        android:id="@+id/confyop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Year Of Publication" 
+        android:textSize="20dip"/>
+    <EditText 
+        android:id="@+id/confyop_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter YOP"
+        android:inputType="numberDecimal"
+     />
+     <TextView
+        android:id="@+id/confyop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="ISBN" 
+        android:textSize="20dip"/>
+    <EditText 
+        android:id="@+id/confisbn_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter ISBN Number"
+        android:inputType="numberDecimal"
+     />
+
+  <TextView
+        android:id="@+id/confno_of_auth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -123,28 +112,28 @@
         android:text="No.of Authors" 
         android:textSize="20dip"/>
     <EditText 
-        android:id="@+id/jouredView5"
+        android:id="@+id/confno_of_auth_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Authors No"
         android:inputType="numberDecimal"
      />
     <TextView 
-        android:id="@+id/jourtv6"
+        android:id="@+id/conmauth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Aru You Main Author?"
         android:textSize="20dip"
         />
     <RadioGroup
-        android:id="@+id/jourmainauth"
+        android:id="@+id/confmainauth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100" >
 
         <RadioButton
-            android:id="@+id/jouryes"
+            android:id="@+id/conmyes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -152,7 +141,7 @@
             android:layout_weight="50"/>
 
         <RadioButton
-            android:id="@+id/journo"
+            android:id="@+id/confmno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No" 
@@ -171,12 +160,10 @@
         android:layout_height="wrap_content"
         android:background="@android:color/darker_gray"
         android:gravity="bottom"
-        android:orientation="horizontal"
-        
-         >
+        android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/jouraccessGraphe"
+            android:id="@+id/confaccessGraphe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.06"
@@ -185,7 +172,7 @@
             android:text="Save" />
 
         <Button
-            android:id="@+id/jouraccessGraphe2"
+            android:id="@+id/confaccessGraphe2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.06"
@@ -195,13 +182,13 @@
              />
 
         <Button
-            android:id="@+id/jouraccessGraphe3"
+            android:id="@+id/confaccessGraphe3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.06"
             android:onClick="selfDestruct"
             
-            android:text="Clear" />
+            android:text="Delete" />
     </LinearLayout>
 
 </LinearLayout>

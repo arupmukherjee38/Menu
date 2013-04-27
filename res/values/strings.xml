@@ -5,5 +5,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="jurnal">Jurnal</string>
+    <string-array name="location_array">
+        <item >Kolkata</item>
+        <item>Mumbai</item>
+        <item>Mohali</item>
+        <item>Delhi</item>
+        <item>Punjab</item>
+        <item>Bihar</item>
+        <item>Bangalore</item>        
+        
+        
+        
+        </string-array>
 
 </resources>
