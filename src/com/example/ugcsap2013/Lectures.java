@@ -47,7 +47,7 @@ public class Lectures extends Activity implements TextWatcher{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lectures);
         String[] items = new String[] {"Seminars", "Tutorials", "Practical","Lecture Time"};
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -171,20 +171,20 @@ public class Lectures extends Activity implements TextWatcher{
 			
 		});
         String[] items2 = new String[] {"Nationl", "States", "University","College","International"};
-        Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+        final Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_item, items2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
         s2=spinner2.getSelectedItem().toString();
         String[] items3 = new String[] {"Aloweted", "Extra"};
-        Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
+        final Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_item, items3);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
         s3=spinner3.getSelectedItem().toString();
-        Toast.makeText(this, s3, Toast.LENGTH_LONG).show();
+      //  Toast.makeText(this, s3, Toast.LENGTH_LONG).show();
         
       //  myAutoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
         
@@ -291,10 +291,13 @@ public class Lectures extends Activity implements TextWatcher{
 			String spin3=s3;
 			int time=minits;
 			String date=datepica; 
+			String test=spin1;
+			System.out.print(spin1);
+			Toast.makeText(Lectures.this,s11, Toast.LENGTH_LONG).show();
 			Db entry=new Db(Lectures.this);
 			//entry.open();
 			
-			entry.createntry(new Dbsetandget(spin1,time,date,auto1,spin2,spin3,auto2));
+			entry.createntry(new Dbsetandget(spinner.getSelectedItem().toString(),time,date,auto1,spinner2.getSelectedItem().toString(),spinner3.getSelectedItem().toString(),auto2));
 			Dialog d1=new Dialog(Lectures.this);
 			d1.setTitle("Sucess");
 			TextView tv=new TextView(Lectures.this);

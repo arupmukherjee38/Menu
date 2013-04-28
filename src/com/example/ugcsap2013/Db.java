@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.example.ugcsap2013.Journalpojo;
 
 public class Db extends SQLiteOpenHelper{
@@ -17,7 +20,7 @@ public class Db extends SQLiteOpenHelper{
 
 	//Data table field for Lecture
 	public static final String KEY_ROWID="_id";
-	public static final String KEY_NAME="Work Type";
+	public static final String KEY_NAME="Work";
 	public static final String KEY_TIME="Time"; 
 	public static final String KEY_DATE="Date";
 	public static final String KEY_PAPER="Paper";
@@ -56,7 +59,7 @@ public class Db extends SQLiteOpenHelper{
 	
 	public static final String DATABASE_NAME="TAKEHour.db";
 	public static final String DATABASE_TABLE="Lecture";
-	public static final int DATABASE_VERSION=1;
+	public static final int DATABASE_VERSION=2;
 	
 	 public Db(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -105,13 +108,17 @@ public class Db extends SQLiteOpenHelper{
 					 );
 			
 			
+			
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
 			// TODO Auto-generated method stub
 			
-			db.execSQL("DROP TABLE IF EXITS"+DATABASE_TABLE);
+			db.execSQL("DROP TABLE IF EXISTS "+DATABASE_TABLE);
+			db.execSQL("DROP TABLE IF EXISTS "+JOUR_DATA_TABLE);
+			db.execSQL("DROP TABLE IF EXISTS "+CONF_DATA_TABLE);
+			
 			onCreate(db);
 			
 		}
@@ -137,6 +144,8 @@ public class Db extends SQLiteOpenHelper{
 	public void createJourEntry(Journalpojo jourpojo)
 	{
 		 SQLiteDatabase db = this.getWritableDatabase();
+		 
+		 
 		ContentValues cv=new ContentValues();
 		cv.put(KEY_JOURTITLE,jourpojo.getTitle());
 		cv.put(KEY_JOURPAGENO, jourpojo.getPageNo());
@@ -203,6 +212,9 @@ public class Db extends SQLiteOpenHelper{
 		cv.put(KEY_WHERE, dbsetandget.getSpin2());
 		cv.put(KEY_MODE, dbsetandget.getSpin3());
 		cv.put(KEY_NOTE, dbsetandget.getAuto2());
+		 Log.v(KEY_NAME,dbsetandget.getSpin1() );
+		 Log.v(KEY_DATE,dbsetandget.getDate());
+
 		db.insert(DATABASE_TABLE, null, cv);
 		db.close();
 		
