@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteException;
 import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.text.InputType;
@@ -20,6 +21,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Jurnal extends Activity implements OnClickListener{
@@ -76,6 +78,27 @@ private int year, month, day;
 		    
 		    int selectedIdm=mauth.getCheckedRadioButtonId();
 		    mauthb=(RadioButton) findViewById(selectedIdm);
+		    String monthString = new DateFormatSymbols().getMonths()[month];;
+		    String datedb=day+"-"+monthString+"-"+year;
+		   
+				Db jourentry=new Db(Jurnal.this);
+				jourentry.createJourEntry(new Journalpojo(title.getText().toString(), pageno.getText().toString(),
+						yop.getText().toString(), isbn.getText().toString(), datedb, 
+						impact.getText().toString(), noofauth.getText().toString(), x.getText().toString(), 
+						mauthb.getText().toString()));
+				
+				Dialog d1=new Dialog(Jurnal.this);
+				d1.setTitle("Sucess");
+				TextView tv=new TextView(Jurnal.this);
+				tv.setText("Suc");
+				d1.setContentView(tv);
+				
+				
+				d1.show();
+				
+						    
+		    
+		    
 			String s="Title :"+title.getText().toString()+"\nPage No :"+pageno.getText().toString()+"\nYOP :"+yop.getText().toString()+"\nReffered or not :"+x.getText().toString()+"\nIsbn :"+isbn.getText().toString()+"\nMain Author ? :"+mauthb.getText().toString()+"\nNo Of Author :"+noofauth.getText().toString();
 			Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
 			break;

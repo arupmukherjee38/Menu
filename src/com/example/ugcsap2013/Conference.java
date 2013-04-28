@@ -15,6 +15,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -39,7 +41,7 @@ public class Conference extends Activity implements OnClickListener{
 	DatePicker d;
 	AutoCompleteTextView auto;
 	
-	RadioGroup r;
+	RadioGroup mainAuth;
 	RadioButton x;
 	
 	static final int DATE_DIALOG_ID = 1,TIME_DIALOG_ID=2,AUTO_COMPLETE=3;
@@ -74,7 +76,7 @@ public class Conference extends Activity implements OnClickListener{
 		time=(Button)findViewById(R.id.conf_time);
 		save=(Button)findViewById(R.id.confaccessGraphe);
 		loc=(Button) findViewById(R.id.conf_loc);
-		r=(RadioGroup) findViewById(R.id.confmainauth);
+		mainAuth=(RadioGroup) findViewById(R.id.confmainauth);
 		
 		
 	}
@@ -132,9 +134,42 @@ public class Conference extends Activity implements OnClickListener{
 			
 		case R.id.confaccessGraphe:
 				
-			int selectedIdm=r.getCheckedRadioButtonId();
+			int selectedIdm=mainAuth.getCheckedRadioButtonId();
 		    x=(RadioButton) findViewById(selectedIdm);
-		    String s="Title :"+title.getText().toString()+"\nPage No :"+pageno.getText().toString()+"\nYOP :"+yop.getText().toString()+"\nLocation  :"+auto.getText().toString()+"\nIsbn :"+isbn.getText().toString()+"\nMain Author ? :"+x.getText().toString()+"\nNo Of Author :"+noofauth.getText().toString();
+		    
+		    String monthString = new DateFormatSymbols().getMonths()[month];;
+		    String datedb=day+"-"+monthString+"-"+year;
+		    String timedb=Integer.toString(hour)+" : "+Integer.toString(min);
+		    Boolean work=true;
+		    
+		    String test=title.getText().toString()+ pageno.getText().toString()+
+			yop.getText().toString()+ isbn.getText().toString()+ datedb+ 
+			timedb+auto.getText().toString()+noofauth.getText().toString()+ x.getText().toString();
+		    
+		    Toast.makeText(getApplicationContext(), test,Toast.LENGTH_SHORT).show();
+		    
+				Db confentry=new Db(Conference.this);
+				
+				
+				
+				
+				confentry.createConfEntry(new Confpojo(title.getText().toString(), pageno.getText().toString(),
+						yop.getText().toString(), isbn.getText().toString(), datedb, 
+						timedb,auto.getText().toString(),noofauth.getText().toString(), x.getText().toString()));
+				
+		
+				// TODO Auto-generated catch block
+				
+				Dialog d1=new Dialog(Conference.this);
+				d1.setTitle("Sucess");
+				TextView tv=new TextView(Conference.this);
+				tv.setText("Suc");
+				d1.setContentView(tv);
+				
+				
+				d1.show();
+			
+		    String s="Title :"+title.getText().toString()+"\nPage No :"+pageno.getText().toString()+"\nYOP :"+yop.getText().toString()+"\nLocation  :"+auto.getText().toString()+"\nIsbn :"+isbn.getText().toString()+"\nMain Author ? :"+x.getText().toString()+"\nNo Of Author :"+noofauth.getText().toString()+"\nTime :"+timedb+"\nDate  :"+datedb;
 		    Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
 			break;
 
@@ -178,7 +213,7 @@ public class Conference extends Activity implements OnClickListener{
        	 return new DatePickerDialog(this, dateListener, year, month, day);
        	
        	case TIME_DIALOG_ID:
-       	 return new TimePickerDialog(this, timeListener, hour, min,Boolean.FALSE);
+       	 return new TimePickerDialog(this, timeListener, hour, min,Boolean.TRUE);
        
         }
         return null;

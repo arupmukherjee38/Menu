@@ -283,8 +283,7 @@ public class Lectures extends Activity implements TextWatcher{
 		@Override
 		public void onClick(View arg0) {
 			// TODO Auto-generated method stub
-			boolean work=true;
-			try{
+			
 			String auto1=s;
 			String auto2=s11;
 			String spin1=s1;
@@ -293,28 +292,20 @@ public class Lectures extends Activity implements TextWatcher{
 			int time=minits;
 			String date=datepica; 
 			Db entry=new Db(Lectures.this);
-			entry.open();
+			//entry.open();
 			
 			entry.createntry(new Dbsetandget(spin1,time,date,auto1,spin2,spin3,auto2));
-			entry.close();
+			Dialog d1=new Dialog(Lectures.this);
+			d1.setTitle("Sucess");
+			TextView tv=new TextView(Lectures.this);
+			tv.setText("Suc");
+			d1.setContentView(tv);
 			
-		}
-			catch(Exception e){
-				work=false;
-				System.out.print(work);
-			}
-			finally{
-				if(work)
-				{Dialog d=new Dialog(Lectures.this);
-				d.setTitle("Sucess");
-				TextView tv=new TextView(Lectures.this);
-				tv.setText("Suc");
-				d.setContentView(tv);
-				d.show();
-				}
-			}
-		}
-	});
+			
+			d1.show();
+			
+		
+		}});
         
        
     }
